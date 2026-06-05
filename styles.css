@@ -233,6 +233,10 @@ h1 {
 .news-sidebar .news {
   position: sticky;
   top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 1.5rem);
+  height: calc(100dvh - 1.5rem);
   margin-top: 0;
   padding-top: 0;
   border-top: 0;
@@ -251,6 +255,44 @@ h1 {
   font-size: 0.84rem;
   line-height: 1.38;
   list-style: none;
+}
+
+.news-sidebar .news-list {
+  overflow-y: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-right: -0.55rem;
+  padding-right: 0.45rem;
+  border-right: 1px solid rgba(155, 47, 36, 0.16);
+  background:
+    linear-gradient(var(--bg) 30%, rgba(252, 251, 250, 0)),
+    linear-gradient(rgba(252, 251, 250, 0), var(--bg) 70%) 0 100%,
+    linear-gradient(rgba(31, 35, 37, 0.12), rgba(31, 35, 37, 0)),
+    linear-gradient(rgba(31, 35, 37, 0), rgba(31, 35, 37, 0.13)) 0 100%;
+  background-attachment: local, local, scroll, scroll;
+  background-repeat: no-repeat;
+  background-size: 100% 1.15rem, 100% 1.15rem, 100% 0.65rem, 100% 0.65rem;
+  scrollbar-color: rgba(155, 47, 36, 0.58) rgba(155, 47, 36, 0.08);
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+
+.news-sidebar .news-list::-webkit-scrollbar {
+  width: 0.48rem;
+}
+
+.news-sidebar .news-list::-webkit-scrollbar-track {
+  background: rgba(155, 47, 36, 0.08);
+  border-radius: 999px;
+}
+
+.news-sidebar .news-list::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(155, 47, 36, 0.55);
+}
+
+.news-sidebar .news-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(155, 47, 36, 0.72);
 }
 
 .news-list li {
@@ -540,6 +582,8 @@ a.paper-title:hover {
 
   .news-sidebar .news {
     position: static;
+    height: min(32rem, calc(100vh - 3.4rem));
+    height: min(32rem, calc(100dvh - 3.4rem));
   }
 
   .profile-photo {
